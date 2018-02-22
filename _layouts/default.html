@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>{% if page.title %}{{ page.title }} – {% endif %}{{ site.name }} – {{ site.description }}</title>
+
+	{% include meta.html %}
+
+	<!--[if lt IE 9]>
+	<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+	<link href="https://fonts.googleapis.com/css?family=Source+Serif+Pro" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="{{ site.baseurl }}/style.css" />
+	<link rel="alternate" type="application/rss+xml" title="{{ site.name }} - {{ site.description }}" href="{{ site.baseurl }}/feed.xml" />
+	<!-- Created with Jekyll Now - http://github.com/barryclark/jekyll-now -->
+</head>
+
+<body>
+
+	{{ content }}
+
+	{% include analytics.html %}
+
+	<script src="{{ site.baseurl }}/js/jquery-2.2.1.min.js"></script>
+	<script src="{{ site.baseurl }}/js/jquery.scrollify.js"></script>
+	<script>
+	{% if page.page-cat %}
+		function getParameterByName(name, url) {
+		    if (!url) url = window.location.href;
+		    name = name.replace(/[\[\]]/g, "\\$&");
+		    var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+			results = regex.exec(url);
+		    if (!results) return null;
+		    if (!results[2]) return '';
+		    return decodeURIComponent(results[2].replace(/\+/g, " "));
+		}
+
+		var classtoshow = getParameterByName('t');
+	{%  endif %}
+
+	$(function() {
+		if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
+		}else{
+			$.scrollify({
+				section : ".sectscroll",
+			});
+		}
+		{% if page.page-cat %}
+			if(classtoshow != null){
+				$(".post").hide();
+				$("."+classtoshow).show();
+			}
+		{%  endif %}
+		
+		{% if page.isindex == true %}
+			$(window).scroll(function(){                          
+			    if ($(this).scrollTop() > 200) {
+				$('.logo').fadeOut(500);
+			    } else {
+				$('.logo').fadeIn(500);
+			    }
+			});
+		{%  endif %}
+
+	});
+	</script>
+</body>
+</html>

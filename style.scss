@@ -1,0 +1,583 @@
+---
+---
+
+//
+// IMPORTS
+//
+
+@import "reset";
+@import "variables";
+// Syntax highlighting @import is at the bottom of this file
+
+/**************/
+/* BASE RULES */
+/**************/
+
+html {
+  font-size: 100%;
+}
+
+body {
+	background: #000;
+  font: 18px/1.4 $ssserif;
+  color: $darkGray;
+}
+
+.container {
+  margin: 0 auto;
+  max-width: 740px;
+  padding: 0 10px;
+  width: 100%;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: $ssserif;
+  color: $darkerGray;
+  font-weight: bold;
+
+  line-height: 1.7;
+  margin: 0 0 1rem 0;
+  padding: 0;
+
+  @include mobile {
+    line-height: 1.4;
+  }
+}
+
+h1 {
+  font-size: 4.5vh;
+  a {
+    color: inherit;
+  }
+}
+
+h2 {
+  font-size:3.5vh;
+}
+
+h3 {
+  font-size: 20px;
+}
+
+h4 {
+  font-size: 18px;
+  color: $gray;
+}
+
+p {
+	margin: 0 0 2.5rem 0;
+	font-size:2.25vh;
+}
+
+a {
+  color: $blue;
+  text-decoration: none;
+	cursor: pointer;
+  &:hover, &:active {
+    color: $blue;
+  }
+}
+
+ul, ol {
+  margin: 15px 0;
+  padding-left: 30px;
+}
+
+ul {
+  list-style-type: disc;
+}
+
+ul li{
+	font-size:2.5vh;
+}
+
+ol {
+  list-style-type: decimal;
+}
+
+ol ul, ul ol, ul ul, ol ol {
+  margin: 0;
+}
+
+ul ul, ol ul {
+  list-style-type: circle;
+}
+
+em, i {
+  font-style: italic;
+}
+
+strong, b {
+  font-weight: bold;
+}
+
+img {
+  max-width: 100%;
+}
+
+// Fixes images in popup boxes from Google Translate
+.gmnoprint img {
+  max-width: none;
+}
+
+.date {
+  /*font-style: italic;*/
+  color: $gray;
+}
+
+// Specify the color of the selection
+::-moz-selection {
+  color: $black;
+  background: $lightGray;
+}
+::selection {
+  color: $black;
+  background: $lightGray;
+}
+
+// Nicolas Gallagher's micro clearfix hack
+// http://nicolasgallagher.com/micro-clearfix-hack/
+.clearfix:before,
+.clearfix:after {
+    content: " ";
+    display: table;
+}
+
+.clearfix:after {
+    clear: both;
+}
+
+/*********************/
+/* LAYOUT / SECTIONS */
+/*********************/
+
+//
+// .masthead
+//
+
+.logo{
+	position:fixed;
+	top:2.5rem;
+	left:2.5rem;
+	z-index:1;
+	max-width:50vw;
+}
+
+#section--1{
+	background:url({{site.url}}/images/section-1-xl.jpg) no-repeat;
+	background-size:cover;
+	width:100vw;
+	height:100vh;
+	position:relative;
+	.section-content{
+		width:90vw;
+		margin:auto;
+		position:absolute;
+		bottom:5vw;
+		left:5vw;
+		h1,h2,p{
+			color:#fff;
+			margin-bottom:5vh;
+		}
+		.btn1{
+			display: flex;
+			/*width: 39.5em;*/
+			width: 25vw;
+			/*height: 8em;*/
+			height: 5vw;
+			background: url({{site.url}}/images/section-1-btn.svg) no-repeat;
+			background-size: contain;
+			align-items: center;
+			justify-content: center;
+			span{
+				font-size: 2vh;
+				color: white;
+			}
+		}
+	}
+}
+#section--2{
+	background:url({{site.baseurl}}/images/section-2-xl.jpg) no-repeat;
+	background-size:cover;
+	width:100vw;
+	height:100vh;
+	position:relative;
+	.section-content{
+		width:90vw;
+		margin:auto;
+		position:absolute;
+		bottom:5vw;
+		right:5vw;
+		h1,h2,p{
+			text-align:right;
+			color:#fff;
+			margin-bottom:5vh;
+		}
+		h2{
+			font-size:4.5vh;
+		}
+	}
+}
+#section--3{
+	background:url({{site.baseurl}}/images/section-2-xl.jpg) no-repeat;
+	background-size:cover;
+	width:100vw;
+	height:100vh;
+	.our-service{
+		background:url({{site.baseurl}}/images/section-3-2-xl.jpg) no-repeat;
+		background-size:cover;
+		width:100%;
+		height:50%;
+		display: -webkit-box;
+		display: -moz-box;
+		display: -ms-flexbox;
+		display: -webkit-flex;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		a{
+			font-size: 7vh;
+			color:#fff;
+			border:2px solid #fff;
+			padding: 2rem 5rem;
+		}
+		a:hover{
+			color:#000;
+			border:2px solid #fff;
+			background:#fff;
+		}
+	}
+	.our-service:first-child{
+		background:url({{site.baseurl}}/images/section-3-1-xl.jpg) no-repeat;
+		background-size:cover;
+	}
+}
+
+#section--4{
+	background:url({{site.url}}/images/section-4-xl.jpg) no-repeat;
+	background-size:cover;
+	width:100vw;
+	height:100vh;
+	position:relative;
+	.section-content{
+		width:90vw;
+		margin:auto;
+		position:absolute;
+		bottom:10vw;
+		left:5vw;
+		h1,h2,p{
+			color:#fff;
+			margin-bottom:5vh;
+		}
+		.btn1{
+			display: flex;
+			width: 25vw;
+			height: 5vw;
+			background: url({{site.url}}/images/section-1-btn.svg) no-repeat;
+			background-size: contain;
+			align-items: center;
+			justify-content: center;
+			float:right;
+			span{
+				font-size: 2vh;
+				color: white;
+			}
+		}
+	}
+}
+
+#section--5{
+	background:url({{site.url}}/images/section-5-xl.jpg) no-repeat;
+	background-size:cover;
+	width:100vw;
+	height:100vh;
+	position:relative;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	.section-content{
+		width:90vw;
+		margin:auto;
+		text-align:center;
+		h1,h2,p{
+			color:#fff;
+			margin-bottom:5vh;
+		}
+		.btn1{
+			display: flex;
+			width: 25vw;
+			height: 5vw;
+			background: url({{site.url}}/images/section-1-btn.svg) no-repeat;
+			background-size: contain;
+			align-items: center;
+			justify-content: center;
+			margin:auto;
+			span{
+				font-size: 2vh;
+				color: white;
+			}
+		}
+	}
+}
+
+#section--6{
+	background:#fff;
+	width:100vw;
+	height:100vh;
+	position:relative;
+	z-index:2;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	.section-content-50{
+		width:50vw;
+		height:100vh;
+		float:left;
+		padding:5vw;
+		p{
+			color:#111;
+			margin-bottom:5vh;
+			position:relative;
+		    	padding-left: 15vh;
+			line-height:3;
+			span{
+				position: absolute;
+				/* Safari */
+				font-size: 7vh;
+				left: 0;
+				top: 0;
+				-webkit-transform: rotate(-90deg);  /* Firefox */
+				-moz-transform: rotate(-90deg);  /* IE */
+				-ms-transform: rotate(-90deg);  /* Opera */
+				-o-transform: rotate(-90deg);  /* Internet Explorer */
+				filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
+			}
+		}
+		
+		ul{
+			list-style: none;
+		    	padding-left: 15vh;
+			span{
+				position: absolute;
+				/* Safari */
+				font-size: 7vh;
+				left: 0;
+				top: 0;
+				-webkit-transform: rotate(-90deg);  /* Firefox */
+				-moz-transform: rotate(-90deg);  /* IE */
+				-ms-transform: rotate(-90deg);  /* Opera */
+				-o-transform: rotate(-90deg);  /* Internet Explorer */
+				filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
+			}
+			li{
+				line-height: 3;
+				a{
+					color:#111;
+				}
+				a:hover{
+					text-decoration:underline;
+				}
+			}
+		}
+		
+		.btn1{
+			display: flex;
+			width: 25vw;
+			height: 5vw;
+			background: url({{site.url}}/images/section-1-btn.svg) no-repeat;
+			background-size: contain;
+			align-items: center;
+			justify-content: center;
+			margin:auto;
+			span{
+				font-size: 2vh;
+				color: white;
+			}
+		}
+	}
+}
+
+.header-portfolio{
+	position:relative;
+	.logo{
+		position:initial;
+		margin-top:2.5rem;
+		margin-left:2.5rem;
+		max-width:15rem;
+		display:inline-block;
+	}
+
+	.page-tags{
+		position:absolute;
+		right:1rem;
+		bottom:1rem;
+		list-style:none;
+		li{
+			float:left;
+			margin-left:1rem;
+			a{
+				color:#fff;
+				font-size:1.5rem;
+			}
+		}
+	}
+}
+
+.page.portfolio{
+	h1{
+		padding:2.5rem;
+		color:#fff;
+		font-weight:normal;
+		text-transform: uppercase;
+	}
+	
+	.entry{
+		.posts{
+			.post{
+				float:left;
+				width:33.3333%;
+				a{
+					display: flex;
+					justify-content: center;
+					align-items: center;
+					width: 100%;
+					span{
+				    		position: absolute;
+						opacity:0;
+					}
+				}
+			}
+		}
+		
+		.posts:after{
+			content:"";
+			display:block;
+			clear:both;
+		}
+	}
+}
+
+#post-video, #post-photo{
+	min-height: 100vh;
+	background: #000;
+	color: #fff;
+	padding-top: 0;
+	padding-bottom: 8rem;
+	h1,h2{
+		color:#fff;
+	}
+	.logo{
+		position: fixed;
+		top: 15px;
+		left: 15px;
+		z-index: 1;
+		max-width: 10rem;
+	}
+	.post{
+		max-width:1200px;
+		width:90vw;
+		margin:auto;
+	}
+}
+
+.youtube-video{
+	width:100vw;
+	height:75vh;
+}
+
+@media only screen and (max-width: 769px){
+	.logo{
+		width: 200px;
+	}
+	
+	#section--3 .our-service a{
+	    	font-size: 6vw;
+	}
+	
+	#section--6{
+		display:block;
+		height: auto;
+		min-height: 100vh;
+	}
+	
+	#section--6 .section-content-50{
+		width:100vw;
+		height:auto;
+	}
+	
+	.btn1{
+		width: 90vw !important;
+		height: 18vw !important;
+	}
+
+	.header-portfolio .page-tags {
+		position: unset;
+		list-style: none;
+		margin: 2rem 0;
+		padding: 1.25rem 15px;
+		text-align: center;
+		border-top: 1px solid #fff;
+		border-bottom: 1px solid #fff;
+		li{
+			a{
+				font-size: 1.25rem;
+			}
+		}
+	}
+	
+	.page.portfolio {
+		h1{
+			padding:0 2.5rem;
+			text-align:center;
+		}
+		.entry {
+			.posts {
+				.post{
+					width:50%;
+				}
+			}
+		}
+	}
+	
+	#post-video, #post-photo{
+		padding-top:0;
+		.logo{
+			top:15px;
+			position:absolute;
+		}
+	}
+	
+}
+
+@media only screen and (max-width: 421px){
+	.logo{
+		width: 125px;
+		margin-top: 0rem;
+		margin-left: 0rem;
+	}
+	
+	.header-portfolio .logo{
+		margin-top: 1.25rem;
+		margin-left: 1.25rem;
+	}
+	
+	.page.portfolio {
+		h1{
+			padding:0 2.5rem;
+			text-align:center;
+		}
+		.entry {
+			.posts {
+				.post{
+					width:100%;
+					padding:0.5rem 1rem;
+				}
+			}
+		}
+	}	
+}
+
+// Settled on moving the import of syntax highlighting to the bottom of the CSS
+// ... Otherwise it really bloats up the top of the CSS file and makes it difficult to find the start
+//@import "highlights";
+//@import "svg-icons";
